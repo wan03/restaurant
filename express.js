@@ -49,7 +49,7 @@ app.get("/", function (req, res) {
 });
 
 // Displays all reservations
-app.get("/reservations", function (req, res) {
+app.get("/view_table", function (req, res) {
   // ! SHOW RESERVATIONS & WAITLIST
   // * LOGIC THAT CAN BE USED IN THE JS ON THE PAGE...
   // * const lastReservation;
@@ -60,32 +60,12 @@ app.get("/reservations", function (req, res) {
   // * for (i = 0; i <= lastReservation; i++) {
   // *   return res.json(reservations[i]);
   // * }
-  res.sendFile(path.join(__dirname, "reservations.html"));
-});
-
-// Displays all waitlist
-app.get("/waitlist", function (req, res) {
-  // ! SHOW ONLY WAITLIST
-  // * LOGIC THAT CAN BE USED IN THE JS ON THE PAGE...
-  // * for (i = 5; i < reservations.length; i++) {
-  // *   return res.json(reservations[i]);
-  // * }
-  res.sendFile(path.join(__dirname, "waitlist.html"));
+  res.sendFile(path.join(__dirname, "view_table.html"));
 });
 
 // Create New Reservation - takes in JSON input
-app.post("/makereservation", function (req, res) {
-  // req.body hosts is equal to the JSON post sent from the user
-  // This works because of our body parsing middleware
-  var newReservation = req.body;
-
-  console.log(newReservation);
-
-  // We then add the json the user sent to the character array
-  reservations.push(newReservation);
-
-  // We then display the JSON to the users
-  res.json(newReservation);
+app.post("/make_reservation", function (req, res) {
+  res.sendFile(path.join(__dirname, "make_reservation.html"));
 });
 
 // Starts the server to begin listening
