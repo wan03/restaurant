@@ -50,7 +50,7 @@ app.get("/", function (req, res) {
 
 // Displays all reservations
 app.get("/reservations", function (req, res) {
-  // ! SHOW ONLY RESERVATIONS
+  // ! SHOW RESERVATIONS & WAITLIST
   // * LOGIC THAT CAN BE USED IN THE JS ON THE PAGE...
   // * const lastReservation;
   // * if (reservations.length <= 4) {
