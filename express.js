@@ -63,6 +63,10 @@ app.get("/view_table", function (req, res) {
   res.sendFile(path.join(__dirname, "view_table.html"));
 });
 
+app.get("/reservations_json", function (req, res) {
+  return res.json(reservations);
+});
+
 // Create New Reservation - takes in JSON input
 app.post("/make_reservation", function (req, res) {
   res.sendFile(path.join(__dirname, "make_reservation.html"));
