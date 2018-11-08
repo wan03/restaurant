@@ -21,7 +21,7 @@ var reservations = [
     phone: "407-555-5555",
     email: "email@destination.com",
     uniqueID: 1
-  },p0
+  },
   {
     name: "Firstname",
     phone: "407-555-6666",
