@@ -29,7 +29,7 @@
 <div class="container">
     <div class="row">
       <div class="col-sm">
-          <a href="">Clear Table</a>
+          <a href="#" class="clear-table">Clear Table</a>
       </div>
       <div class="col-sm">
         <a href="">API Table Link</a> 
@@ -48,30 +48,34 @@
     <script>
       // Get current reservation info from API using Ajax then chain a call for the waiting list information then display all that data in the appropriate containers
 
-      $.get("/api/reservations", function(data) {
+      $.get("/reservations_json", function(data) {
         for (var i = 0; i < data.length; i++) {
           console.log(data[i]);
+          if (i < 5) {
           let restaurantReservations = $("<li class='list-group-item'>");
 
           listGroupItem.append($("<h2>").text("Name: " + data[i].unqueID));
 
           $("#reservations_container").append(listGroupItem);
-        }
-      });
-
-       $.get("/api/waitinglist", function(data) {
-        for (var i = 0; i < data.length; i++) {
-          console.log(data[i]);
+        } else if (i >= 5){
           let waitingList = $("<li class='list-group-item'>");
 
           listGroupItem.append($("<h2>").text("Name: " + data[i].unqueID));
 
-          $("#waiting_list").append(listGroupItem);
+            $("#waiting_list").append(listGroupItem);
         }
+        } 
       });
 
 
       //Create the function to clear the tables that will also delete the information in the API. 
+      
+      $("clear-table").on("click", function(){
+        $.post(url, function(){
+          reservations = [];
+        })
+      })
+
 
       
 
