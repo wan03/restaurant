@@ -2,7 +2,6 @@
 // Dependencies
 // =============================================================
 var express = require("express");
-// ! PATH IS A CORE MODULE IN NODE
 var path = require("path");
 
 // Sets up the Express App
@@ -22,7 +21,7 @@ var reservations = [
     phone: "407-555-5555",
     email: "email@destination.com",
     uniqueID: 1
-  },
+  },p0
   {
     name: "Firstname",
     phone: "407-555-6666",
