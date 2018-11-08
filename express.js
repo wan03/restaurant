@@ -2,7 +2,6 @@
 // Dependencies
 // =============================================================
 var express = require("express");
-// ! PATH IS A CORE MODULE IN NODE
 var path = require("path");
 
 // Sets up the Express App
@@ -61,6 +60,10 @@ app.get("/view_table", function (req, res) {
   // *   return res.json(reservations[i]);
   // * }
   res.sendFile(path.join(__dirname, "view_table.html"));
+});
+
+app.get("/reservations_json", function (req, res) {
+  return res.json(reservations);
 });
 
 // Create New Reservation - takes in JSON input
